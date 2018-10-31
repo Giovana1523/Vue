@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vue.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <nav class=" blue darken-1"></nav>
+    <div id="app-6" class="container">
+        <p>{{ message }}</p>
+        <input id="posta" v-model="message">
+        <button id="Postar" class="btn waves-effect blue    " type="submit" name="action" v-on:click="Postar()"><i
+                class="material-icons right">send</i>Tweetar</button>
+        <ul class="collection ">
+            <li class="collection-item avatar" v-for="item in messages">
+                <i class="material-icons circle">account_circle</i>
+                <span class="title">anonimo</span>
+                <p>{{item.texto}} <br>
+                    Segundos:
+                </p>
+                <a class="curtir" class="secondary-content"><i class="material-icons  " v-on:click="Curtir(item) ">thumb_up</i></a>
+                {{item.curtidas}}
+                <a class="curtir" class="secondary-content"><i class="material-icons" v-on:click="Descurtir(item) ">thumb_down</i></a>
+                {{item.descurtidas}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="index.js"></script>
+
+</html>
